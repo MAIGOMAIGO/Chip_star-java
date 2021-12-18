@@ -1,45 +1,45 @@
 import java.io.*;
 
 public class Chip_star{
-	public static void main(String arg[]){
+	public static void main(String[] args){
 
-		int ban,eat,chip=21,whi=1;
-		System.out.println("chipstar‚ª21–‡‚ ‚è‚Ü‚·B\næUAŒãU‚Í‚­‚¶‚ÅŒˆ‚Ü‚è‚Ü‚·B\nÅŒã‚Ìchip‚ğH‚×‚½‚Ù‚¤‚Ì•‰‚¯‚Å‚·B");
+		int ban,eat,chip=21;
+		System.out.println("chipstarãŒ21æšã‚ã‚Šã¾ã™ã€‚\nå…ˆæ”»ã€å¾Œæ”»ã¯ãã˜ã§æ±ºã¾ã‚Šã¾ã™ã€‚\næœ€å¾Œã®chipã‚’é£Ÿã¹ãŸã»ã†ã®è² ã‘ã§ã™ã€‚");
 
 		ban = (int)(Math.random()*10) % 2;
 		
 		while(chip>0){
-			//ƒQ[ƒ€‚ğŒğŒİ‚És‚¢‚Ü‚·//
+			//ã‚²ãƒ¼ãƒ ã‚’äº¤äº’ã«è¡Œã„ã¾ã™//
 			if(ban==0){
-				System.out.println("\nl—Ş‚Ìƒ^[ƒ“");
+				System.out.println("\näººé¡ã®ã‚¿ãƒ¼ãƒ³");
 				chip = human(chip);
 				ban++;
 			}else if( ban == 1 ){
-				System.out.println("\nAI‚Ìƒ^[ƒ“");
+				System.out.println("\nAIã®ã‚¿ãƒ¼ãƒ³");
 				chip = kikai(chip);
 				ban--;
 			}else{
-				System.out.println("ƒGƒ‰[");
+				System.out.println("ã‚¨ãƒ©ãƒ¼");
 				break;
 			}
 		}
-		//ŸÒ”­•\//
+		//å‹è€…ç™ºè¡¨//
 		if( ban == 0 ){
-			System.out.println("l—Ş‚ÌŸ—˜‚Å‚·");
+			System.out.println("äººé¡ã®å‹åˆ©ã§ã™");
 		}else if( ban == 1 ){
-			System.out.println("AI‚ÌŸ—˜‚Å‚·");
+			System.out.println("AIã®å‹åˆ©ã§ã™");
 		}else{
-			System.out.println("ƒGƒ‰[‚Å‚·");
+			System.out.println("ã‚¨ãƒ©ãƒ¼ã§ã™");
 		}
 
 	}
 	
-	//l—Ş‚ÌH‚×‚é–‡”‚ğŒˆ‚ß‚éŠÖ”
+	//äººé¡ã®é£Ÿã¹ã‚‹æšæ•°ã‚’æ±ºã‚ã‚‹é–¢æ•°
 	public static int human(int chip){
 		int eat,flag=1;
-		System.out.println("chip‚Ìc‚è–‡”" + chip + "–‡\n‰½–‡H‚×‚Ü‚·‚©H(1`3‚Ì®”‚ğ“ü—Í‚µ‚Ä‰º‚³‚¢)");
+		System.out.println("chipã®æ®‹ã‚Šæšæ•°" + chip + "æš\nä½•æšé£Ÿã¹ã¾ã™ã‹ï¼Ÿ(1ï½3ã®æ•´æ•°ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„)");
 
-		//“ü—Íæ“¾‚Ì‚½‚ß‚Ì
+		//å…¥åŠ›å–å¾—ã®ãŸã‚ã®
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
 		while( flag == 1 ){
@@ -47,39 +47,39 @@ public class Chip_star{
 				eat = Integer.parseInt( reader.readLine() );
 				if(eat >= 1 && eat <= 3){
 					chip -= eat;
-					if( chip < 1)System.out.println("chip‚Í0–‡");
+					if( chip < 1)System.out.println("chipã¯0æš");
 					flag = 0;
 				}else if( 0 >= eat || eat > 3){
-					System.out.println("“ü—Í‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñ\n‚à‚¤ˆê“x“ü—Í‚µ‚Ä‰º‚³‚¢");
+					System.out.println("å…¥åŠ›ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“\nã‚‚ã†ä¸€åº¦å…¥åŠ›ã—ã¦ä¸‹ã•ã„");
 				}
 				
 			}catch(IOException e){
 				System.out.println(e);
 			}catch(NumberFormatException e){
-				System.out.println("“ü—Í‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñ\n‚à‚¤ˆê“x“ü—Í‚µ‚Ä‰º‚³‚¢");
+				System.out.println("å…¥åŠ›ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“\nã‚‚ã†ä¸€åº¦å…¥åŠ›ã—ã¦ä¸‹ã•ã„");
 			}
 		}
 		return chip;		
 	}
 	
-	//AI‚ÌH‚×‚é–‡”‚ğŒˆ‚ß‚éŠÖ”
+	//AIã®é£Ÿã¹ã‚‹æšæ•°ã‚’æ±ºã‚ã‚‹é–¢æ•°
 	public static int kikai(int chip){
 	int eat, z = 0;
 	
-	//eat‚ÍH‚×‚½‚¢–‡”//
+	//eatã¯é£Ÿã¹ãŸã„æšæ•°//
 	for(int i = 1; z < chip; i++ ){
 		z = 4 * i + 1;
 	}
 	eat = ( 4 - ( z -  chip ));
 
-	//human‚ª‹­‚©‚Á‚½‚É‚â‚¯‚É‚È‚éAI‚Ì‚½‚ß‚Ì—”//
+	//humanãŒå¼·ã‹ã£ãŸæ™‚ã«ã‚„ã‘ã«ãªã‚‹AIã®ãŸã‚ã®ä¹±æ•°//
 	if( eat == 4 || eat == 0){
 		eat = ( (int)(Math.random()*10) % 3) + 1;
 	}
 
-	System.out.println( eat + "–‡H‚×‚½");
+	System.out.println( eat + "æšé£Ÿã¹ãŸ");
 	chip -= eat;
-	//H‚×c‚µ‚½–‡”•Ô‚µ‚Ä‚é//
+	//é£Ÿã¹æ®‹ã—ãŸæšæ•°è¿”ã—ã¦ã‚‹//
 	return chip;
 	}	
 }
